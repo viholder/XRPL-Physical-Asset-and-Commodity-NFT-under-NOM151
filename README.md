@@ -1,3 +1,5 @@
+<h2>Contracts Tied to Physical Inventory via XRP NFTs</h2>
+
 # XRPL-Physical-Asset-and-Commodity-NFT-under-NOM151
 The XRPL Physical Asset and Commodity NFT under NOM-151 Generator is a tool designed to facilitate the creation and management of Non-Fungible Tokens (NFTs) within the XRPL.
 
