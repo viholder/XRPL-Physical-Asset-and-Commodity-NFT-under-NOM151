@@ -14,7 +14,7 @@ express.js<br>
 msql<br>
 
 
-<h2> XRPL-Physical-Asset-and-Commodity-NFT-under-NOM151 is part of the code for the project viholder.com</h2><br>
+<h2> This code is part of the code for the project viholder.com</h2><br>
  
 # viholder.com
 This platform is allowing users and business to create and participate on smart contracts that are shaped in many types of financial instruments and other creative ways. It uses XRP ledger for secure and fast execution and settlement, it  offers templates for various use cases. A contract rating system and stats adds transparency, making it a reliable solution for businesses and individuals looking for take part. 
