@@ -7,13 +7,14 @@ const { createHash } = require('crypto');
 
 var hasNOM151=0
 
-var master_wallet_seed=<<MASTERWALLETSEED>>
+var master_wallet_seed=""
  
+
  var con = mysql.createConnection({
-      host: <<HOTNAME>>,
-      user: <<USERNAME>>,
-      password: <<PASSWORD>>,
-      database: <<DATABASENAME>>,
+      host: "",
+      user: "",
+      password: "",
+      database: "",
       port: "3306"
  });
 
@@ -45,8 +46,10 @@ async function get_wallet_balance(walletID){
   let net = getNet()
   const client = new xrpl.Client(net)
   await client.connect()
+
    
-  const wallet_balance = (await client.getXrpBalance(walletID))      
+  const wallet_balance = (await client.getXrpBalance(walletID))  
+    
    const response = await client.request({
     "command": "account_info",
     "account": walletID,
@@ -54,19 +57,21 @@ async function get_wallet_balance(walletID){
   })
 
  client.disconnect()
+
  return wallet_balance;
 }
-
 
 function getNet() {
   let net
      net = "wss://s.altnet.rippletest.net:51233"
+  // net = "wss://s.devnet.rippletest.net:51233"
   return net
 } 
 
  
 
 function Contract_Create_Wallet(userID,contractID){
+
 
   const new_wallet = xrpl.Wallet.generate()
  
@@ -78,7 +83,7 @@ function Contract_Create_Wallet(userID,contractID){
   
     console.log(new_wallet);
    
-// ACTIVATE THE NEW ACCOUNT SENDING XRP 
+    // ACTIVATE NEW ACCOUNT SENDING XRP 
     let from_wallet_seed=master_wallet_seed
     let to_wallet = new_wallet.classicAddress
     let to_wallet_seed = new_wallet.seed // NEEDED FOR INVENTORY NFT
@@ -126,6 +131,7 @@ function contract_wallet_exist(userID,contractID){
   }
   const tx = await client.submitAndWait(transactionJson, { wallet: standby_wallet} )
 
+
   client.disconnect()
   console.log("NFT INVENTORY CREATED WITH HASH RELATED TO NOM-151")
 
@@ -142,8 +148,53 @@ function Contract_signed_HASH(userID,contractID){
       contract_wallet_exist(userID,contractID)
     }else{
       console.log("not signed yet") 
+       
+       send("not")
       return false
     }
   })
   
 }
+
+
+ 
+function hash(string) {
+   return createHash('sha256').update(string).digest('hex');
+}
+
+
+async function ActivateAccountSendXRP(from_wallet_seed,to_wallet,to_wallet_seed,sendAmount) {
+
+  let net = getNet()
+  const client = new xrpl.Client(net)
+  await client.connect()
+
+  const standby_wallet = xrpl.Wallet.fromSeed(from_wallet_seed)
+
+
+  const prepared = await client.autofill({
+    "TransactionType": "Payment",
+    "Account": standby_wallet.address,
+    "Amount": xrpl.xrpToDrops(sendAmount),
+    "Destination": to_wallet
+  })
+
+ 
+  const signed = standby_wallet.sign(prepared)
+
+  const tx = await client.submitAndWait(signed.tx_blob)
+
+  client.disconnect() 
+
+   
+   // CREATE INVENTORY NFT
+   standbyTokenUrlField=hasNOM151
+   standbyFlagsField=8
+   standbyTransferFeeField=0
+   Contract_Create_NFT_Inventory(to_wallet_seed,standbyTokenUrlField,standbyFlagsField,standbyTransferFeeField)
+
+
+}
+ 
+module.exports = router;
+
