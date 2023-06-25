@@ -121,6 +121,38 @@ Some of the projects that have already successfully used the platform are:
 <h2> Live working Version:</h2>
 Please note that while the contract platform is currently under development, there is a working version available for users to explore and test. You can visit the platform at <a href="https://viholder.com">viholder.com</a> to see how it works and familiarize yourself with its features and capabilities
 
+<h2> Technical Design</h2>
+
+Once a contract is created in Viholder it is configured and saved. The system will search to see if that contract has already been signed electronically.
+
+So with this function we connect to the Viholder database and we will search if it is already electronically signed and if it is electronically signed. We are going to store that hash with in this variable. From there we are going to see if you already have an assigned XRP portfolio. If you do not have it, create it and if you do, it means that it is no longer necessary to continue with the entire process. If you don't have it, we are going to create the portfolio.
+
+We created a portfolio related to the contract and the user, the user who owns the contract, the company that owns the contract. We created it by saving the three values in our database, including the XRP seed. To later make transactions with that same portfolio.
+
+To activate the created wallet we send XRP and in that same transaction we send the seed of the wallet to whom we send. We already created it, we already activated it.
+
+Here, we are sending you the XRP. Here we are all the information of the portfolio with the seed of who sends the XRP here.
+
+We sign the deal. It is a payment operation with the amount sent and the recipient's information. Then we transmit our our signature.
+
+It is worth mentioning that all this is executed on the secure and private server side, this does not really send the seed, nor the passwords. Sensitive information is not transmitted over the Internet, the action is carried out on a private and secure server.
+
+What is transmitted over the Internet to the public XRP server is the hash of the already signed transaction.
+
+We are already disconnected from the Ledger.
+
+We are going to create the inventory relationship or the relationship between the contract signed with an advanced electronic signature, proof of conservation of a trusted service provider authorized by the Ministry of Economy, with the portfolio that was created for the user or for the contract, or the contract and the owner of the contract.
+
+We program it to be an NFT and we enter the hash of the contract signed with all the legal attributes according to NOM 151. From this step forward  the NFT of the contract can be transmitted to other users within the XRP ledger. If we want to put a fee for each transaction, we can program it with this function.
+
+We reconnect to Ledger and for that we need the seed of who is going to create it. In this case it is the same contract portfolio. We put the hash. It is worth mentioning that we have this field to enter information of 256 characters. The hash of the Unique Document Identifier is 64 characters long. Therefore, any of these hashes  of any signed contract fits perfectly here.
+
+The hash of the unique identifier of the document signed in accordance with the provisions of the Advanced Electronic Signature Law and the Commercial Code using certificates issued by a Certification Service Provider has the same legal validity as a handwritten signature as well as presumption of integrity and presumption signature attribution.
+
+Here we create it and send the transaction. If everything is correct. We have an NFT created with hash of regulation 151, the Advanced Electronic Signature Law and the Commercial Code, thus generating an NFT in XRPL legally backed by a physical asset.
+
+This is the Viholder code that makes it possible.
+
 
 
 
