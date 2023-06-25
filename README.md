@@ -75,7 +75,7 @@ Contracts can come in a variety of types and behaviors, each designed to suit di
 ![useblockchain](https://github.com/viholder/viholder-for-XRP/assets/128828242/7ea7127c-4449-4814-8ecc-1405967fa17f)
 
 </br>
-<br>Once the XRP network is selected the systems create a XRP wallet where the funds will be deposited.
+<br>Once the XRP Ledger is selected the systems create a XRP wallet where the funds will be deposited and a NFT with a hash backed by the Mexican government digital contracts. By leveraging advanced electronic signatures and preservation certificates under the NOM-151.
 
 <h2>Contract Administrtation:  </h2><br>
 As the owner of a contract, you will have access to a range of tools and features that allow you to administer and monitor its performance over time.<br> These tools can provide valuable insights.<br><br>
